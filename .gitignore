@@ -46,4 +46,3 @@ bower.json
 database.yml
 secrets.yml
 .coveralls.yml
-/coverage
