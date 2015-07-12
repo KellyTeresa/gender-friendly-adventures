@@ -43,5 +43,4 @@ bower.json
 
 # Ignore env and database etc
 .env
-secrets.yml
 .coveralls.yml
