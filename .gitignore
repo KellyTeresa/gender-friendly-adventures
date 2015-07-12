@@ -41,5 +41,6 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-# Ignore env 
+# Ignore env & database
 .env
+.database.yml
