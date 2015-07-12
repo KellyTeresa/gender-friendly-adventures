@@ -66,3 +66,5 @@ gem 'dotenv-rails'
 group :test do
   gem 'coveralls', require: false
 end
+
+gem "codeclimate-test-reporter", group: :test, require: nil
