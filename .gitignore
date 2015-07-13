@@ -43,4 +43,4 @@ bower.json
 
 # Ignore env & database
 .env
-.database.yml
+database.yml
