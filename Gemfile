@@ -62,9 +62,9 @@ gem 'modernizr-rails'
 gem 'dotenv-rails'
 # gem 'carrierwave'
 # gem 'fog'
+gem 'omniauth'
 
 group :test do
   gem 'coveralls', require: false
+  gem "codeclimate-test-reporter", require: nil
 end
-
-gem "codeclimate-test-reporter", group: :test, require: nil
