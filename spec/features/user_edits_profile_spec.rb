@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user edits profile', %Q{
+feature 'user edits profile', %{
   As an authenticated user
   I want to edit my profile
   So I can change my display name.
