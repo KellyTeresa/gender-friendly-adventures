@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Business, type: :model do
   context "a new business" do
-    let (:cafe) {
-      {
+    let (:cafe) { {
         name: "A Cool Cafe",
         address: "1234 Street Ave. Boston, MA",
         summary: "A small cafe with a variety of snacks."
@@ -62,23 +61,23 @@ RSpec.describe Business, type: :model do
     end
 
     context "is not valid if the summary is wrong length" do
-        it "is too long" do
-          business = Business.new(
-            name: cafe[:name],
-            address: cafe[:address],
-            summary: description
-            )
-          expect(business.valid?).to eq false
-        end
+      it "is too long" do
+        business = Business.new(
+          name: cafe[:name],
+          address: cafe[:address],
+          summary: description
+          )
+        expect(business.valid?).to eq false
+      end
 
-        it "is too short" do
-          business = Business.new(
-            name: cafe[:name],
-            address: cafe[:address],
-            summary: "A cafe."
-            )
-          expect(business.valid?).to eq false
-        end
+      it "is too short" do
+        business = Business.new(
+          name: cafe[:name],
+          address: cafe[:address],
+          summary: "A cafe."
+          )
+        expect(business.valid?).to eq false
+      end
     end
 
     it "is not valid if the description is too long" do
