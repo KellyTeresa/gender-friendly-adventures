@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Business, type: :model do
   context "a new business" do
-    let (:cafe) { {
+    let (:cafe) {
+      {
         name: "A Cool Cafe",
         address: "1234 Street Ave. Boston, MA",
         summary: "A small cafe with a variety of snacks."
