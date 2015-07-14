@@ -1,0 +1,24 @@
+<div class="form">
+  <%= form_for @business do |f| %>
+    <%= f.label :name %>*
+    <%= f.text_field :name %>
+
+    <%= f.label :address %>*
+    <%= f.text_field :address %>
+
+    <%= f.label :summary, "Short description" %>*
+    <%= f.text_field :summary %>
+
+    <%= f.label :description, "Long description" %>
+    <%= f.text_area :description %>
+
+    <%= f.label :website %>
+    <%= f.text_field :website %>
+
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number %>
+
+    <%= f.submit =%>
+  <%- end -%>
+  <p>*Required</p>
+</div>
