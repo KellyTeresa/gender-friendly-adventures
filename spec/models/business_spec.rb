@@ -2,16 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Business, type: :model do
   context "a new business" do
-    let (:cafe) {
-      {
-        name: "A Cool Cafe",
-        address: "1234 Street Ave. Boston, MA",
-        summary: "A small cafe with a variety of snacks."
-      }
+    cafe = {
+      name: "A Cool Cafe",
+      address: "1234 Street Ave. Boston, MA",
+      summary: "A small cafe with a variety of snacks."
     }
 
-    let (:description) {
-      "Cupcake ipsum dolor. Sit amet sesame snaps
+    description = "Cupcake ipsum dolor. Sit amet sesame snaps
       jujubes. Cheesecake jelly-o croissant tart chocolate bar.
       Lollipop cake tart gingerbread cake. Jujubes jujubes topping
       tootsie roll macaroon topping chocolate cake. Sweet roll muffin
@@ -21,7 +18,6 @@ RSpec.describe Business, type: :model do
       carrot cake liquorice. Brownie jelly-o cupcake brownie topping
       gummies halvah. Biscuit donut biscuit soufflé.
       Cake macaroon pudding lollipop."
-    }
 
     it "is valid if only required information is provided" do
       business = Business.new(
