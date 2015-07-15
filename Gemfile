@@ -64,7 +64,7 @@ gem 'dotenv-rails'
 # gem 'fog'
 gem 'omniauth'
 
-group :test do
-  gem 'coveralls', require: false
-  gem "codeclimate-test-reporter", require: nil
-end
+# group :test do
+#   gem 'coveralls', require: false
+#   gem "codeclimate-test-reporter", require: nil
+# end
