@@ -55,7 +55,7 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-@import 'foundation/functions';
+@import "foundation/functions";
 
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
@@ -85,7 +85,7 @@ $include-html-global-classes: $include-html-classes;
 
 // c. Global
 // - - - - - - - - - - - - - - - - - - - - - - - - -
-@import 'variables';
+@import "variables";
 
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1368,7 +1368,7 @@ $topbar-link-text-transform: none;
 $topbar-link-padding: ($topbar-height / 3);
 $topbar-back-link-size: rem-calc(18);
 $topbar-link-dropdown-padding: rem-calc(20);
-$topbar-button-font-size: .75rem;
+$topbar-button-font-size: 0.75rem;
 $topbar-button-top: 7px;
 
 // Style the top bar dropdown elements
@@ -1380,7 +1380,7 @@ $topbar-dropdown-link-bg-hover: $jet;
 $topbar-dropdown-link-weight: $font-weight-normal;
 $topbar-dropdown-toggle-size: 5px;
 $topbar-dropdown-toggle-color: $white;
-$topbar-dropdown-toggle-alpha: .4;
+$topbar-dropdown-toggle-alpha: 0.4;
 
 $topbar-dropdown-label-color: $monsoon;
 $topbar-dropdown-label-text-transform: uppercase;
