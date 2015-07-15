@@ -7,5 +7,5 @@ class Business < ActiveRecord::Base
   validates :description, length: { maximum: 1000 }, allow_nil: true
   validates :website,
     format: { with: URI::regexp(%w(http https)) },
-    allow_nil: true
+    allow_blank: true
 end
