@@ -15,27 +15,30 @@
  *= require foundation_and_overrides
 
  */
- @import 'variables';
+@import "variables";
 
- .footer {
-   background-color: $oil;
-   text-align: center;
-   font-size: 1.2rem;
-   padding: 1rem;
+.footer {
+  background-color: $oil;
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-align: center;
 
-   .links li {
-     list-style: none;
-     display: inline-block;
-     font-weight: bold;
-     color: $white;
-     padding: 2rem 0;
-     margin: 0;
-     &::after {
-       content: "★";
-       padding: 0 0.4rem 0 0.8rem;
-     }
-     &:last-child::after {
-       content: "";
-     }
-   }
- }
+  .links li {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    list-style: none;
+    margin: 0;
+    padding: 2rem 0;
+
+
+    &::after {
+      content: "★";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+  }
+}
