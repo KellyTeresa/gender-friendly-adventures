@@ -40,7 +40,16 @@
       <%= yield %>
     </div>
   </div>
-
+  <footer class="footer">
+    <div class="row">
+      <div class="small-12 columns">
+        <ul class="links">
+          <li><%= link_to 'About', about_path %></li>
+          <li><%= link_to 'Contact', contact_path %></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
