@@ -19,6 +19,7 @@ feature "adding a business" do
     fill_in "Name", with: venue.name
     click_button "Submit"
     expect(page).to have_content "errors prohibited this venue from being saved"
+    expect(page).to have_field("Name", with: venue.name)
   end
 
   scenario "navigate from root" do

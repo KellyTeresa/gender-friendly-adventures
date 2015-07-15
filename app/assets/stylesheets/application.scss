@@ -15,3 +15,29 @@
  *= require foundation_and_overrides
 
  */
+@import "variables";
+
+.footer {
+  background-color: $oil;
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-align: center;
+
+  .links li {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    list-style: none;
+    margin: 0;
+    padding: 2rem 0;
+
+    &::after {
+      content: "★";
+      padding: 0 0.4rem 0 0.8rem;
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+  }
+}
