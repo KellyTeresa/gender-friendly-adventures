@@ -4,6 +4,12 @@ feature "add a review" do
   let (:venue) { FactoryGirl.create(:business) }
   let (:user) { FactoryGirl.create(:user) }
   let (:review) { FactoryGirl.build(:review) }
+
+  before(:each) do
+    visit new_user_session_path
+    sign_in_as(user)
+  end
+
   xscenario "user adds a review with minimum required fields" do
 
   end
