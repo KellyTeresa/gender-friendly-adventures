@@ -2,6 +2,13 @@ require "rails_helper"
 
 feature "adding a business" do
   let (:venue) { FactoryGirl.build(:business) }
+  let (:user) { FactoryGirl.create(:user) }
+
+  before(:each) do
+    visit new_user_session_path
+    sign_in_as(user)
+  end
+
   scenario "correctly provide information" do
     visit new_business_path
     fill_in "Name", with: venue.name

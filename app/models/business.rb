@@ -1,6 +1,7 @@
 require 'uri'
 
 class Business < ActiveRecord::Base
+  has_many :reviews
   validates :name, presence: true
   validates :address, presence: true
   validates :summary, presence: true, length: { in: 25..250 }
