@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.2'
 # Use postgresql as the database for Active Record
@@ -64,7 +64,7 @@ gem 'dotenv-rails'
 # gem 'fog'
 gem 'omniauth'
 
-group :test do
-  gem 'coveralls', require: false
-  gem "codeclimate-test-reporter", require: nil
-end
+# group :test do
+#   gem 'coveralls', require: false
+#   gem "codeclimate-test-reporter", require: nil
+# end
