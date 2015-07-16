@@ -41,3 +41,10 @@
     }
   }
 }
+
+.rating li {
+  display: inline-block;
+  max-width: 8rem;
+  padding-right: 0.5rem;
+  text-align: center;
+}
