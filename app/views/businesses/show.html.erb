@@ -2,10 +2,30 @@
   <ul>
     <li><%= @business.name %></li>
     <li><%= @business.address %></li>
+    <% unless @business.phone_number.blank? %>
+      <li><%= @business.phone_number %></li>
+    <% end %>
+    <% unless @business.website.blank? %>
+      <li><%= @business.website %></li>
+    <% end %>
     <li><%= @business.summary %></li>
+    <% unless @business.description.blank? %>
+      <li><%= @business.description %></li>
+    <% end %>
   </ul>
 </div>
 
 <div class="reviews">
+  <h5>Reviews</h5>
   <%= link_to 'Add Review', new_business_review_path(@business) %>
+
+  <ul>
+    <% if @business.reviews.length == 0 %>
+      <li>There are no reviews yet.</li>
+    <% else %>
+      <% @business.reviews.each do |review| %>
+        <li><%= "#{review.overall} points overall. #{review.comment} - #{review.user.display_name}" %></li>
+      <% end %>
+    <% end %>
+  </ul>
 </div>

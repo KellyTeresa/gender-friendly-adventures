@@ -42,7 +42,9 @@
       <%= yield %>
     </div>
   </div>
-  <footer class="footer">
+
+
+  <div id="sticky-foot" class="footer">
     <div class="row">
       <div class="small-12 columns">
         <ul class="links">
@@ -51,7 +53,7 @@
         </ul>
       </div>
     </div>
-  </footer>
+  </div>
   <%= javascript_include_tag 'application' %>
   <%= yield :extra_footer %>
 </body>
