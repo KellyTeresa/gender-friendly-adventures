@@ -34,5 +34,4 @@ feature "adding a business" do
     click_link "Add Venue"
     expect(current_path).to eq(new_business_path)
   end
-
 end

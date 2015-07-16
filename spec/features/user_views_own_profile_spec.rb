@@ -8,7 +8,7 @@ feature "user visits their profile" do
     sign_in_as(user)
   end
 
-  xscenario "visit from root" do
+  scenario "visit from root" do
     visit root_path
     click_link "My Profile"
     expect(page).to have_content user.display_name
