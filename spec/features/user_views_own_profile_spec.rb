@@ -7,7 +7,7 @@ feature "user visits their profile" do
     visit new_user_session_path
     sign_in_as(user)
   end
-  
+
   xscenario "visit from root" do
     visit root_path
     click_link "My Profile"
