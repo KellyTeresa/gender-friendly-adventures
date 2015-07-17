@@ -26,7 +26,8 @@ feature "adding a business" do
       visit new_business_path
       fill_in "Name", with: venue.name
       click_button "Submit"
-      expect(page).to have_content "errors prohibited this venue from being saved"
+      expect(page).to have_content "errors prohibited this
+        venue from being saved"
       expect(page).to have_field("Name", with: venue.name)
     end
 

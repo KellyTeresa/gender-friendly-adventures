@@ -10,7 +10,8 @@ class Review < ActiveRecord::Base
       "Frequently" => 2,
       "Occasionaly" => 3,
       "Rarely" => 4,
-      "Never, yay!" => 5}
+      "Never, yay!" => 5
+    }
   end
 
   def self.bathroom_options
