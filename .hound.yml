@@ -276,3 +276,6 @@ Style/UnneededPercentQ:
 
 Metrics/AbcSize:
   Enabled: false
+
+scss:
+  enabled: false
