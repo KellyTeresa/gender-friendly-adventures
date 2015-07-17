@@ -20,11 +20,22 @@ feature "add a review" do
     expect(page).to have_content review.comment
   end
 
-  xscenario "user adds a review including optional fields" do
-
+  scenario "user adds a review including optional fields" do
+    select "Occasionaly", from: "review[terminology]"
+    select "Gender based single stall, no key/code required.",
+      from: "review[bathrooms]"
+    choose "Yes"
+    choose review.overall
+    fill_in "review[comment]", with: review.comment
+    click_button "Add Review"
+    expect(page).to have_content "Review added!"
+    expect(page).to have_content review.comment
   end
 
-  xscenario "user attempts to add review with missing fields" do
-
+  scenario "user attempts to add review with missing fields" do
+    fill_in "review[comment]", with: review.comment
+    click_button "Add Review"
+    expect(page).to have_content "prohibited this review from being saved"
+    expect(page).to have_field("review[comment]", with: review.comment)
   end
 end
