@@ -10,9 +10,7 @@ feature 'user edits profile', %{
 
   scenario 'authenticated user edits profile' do
     visit new_user_session_path
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    sign_in_as(user)
     visit edit_user_registration_path
     fill_in 'Display name', with: 'Bruh'
     fill_in 'Current password', with: user.password
@@ -27,5 +25,10 @@ feature 'user edits profile', %{
     visit edit_user_registration_path
     expect(page).to have_content 'You need to sign in or sign up before
       continuing.'
+  end
+
+  scenario "unauthenticated user cannot see link to profile" do
+    visit root_path
+    expect(page).to_not have_content "My Profile"
   end
 end
