@@ -8,10 +8,16 @@ feature "add a review" do
   before(:each) do
     visit new_user_session_path
     sign_in_as(user)
+    visit business_path(venue)
+    click_link "Add Review"
   end
 
-  xscenario "user adds a review with minimum required fields" do
-
+  scenario "user adds a review with minimum required fields" do
+    choose review.overall
+    fill_in "review[comment]", with: review.comment
+    click_button "Add Review"
+    expect(page).to have_content "Review added!"
+    expect(page).to have_content review.comment
   end
 
   xscenario "user adds a review including optional fields" do

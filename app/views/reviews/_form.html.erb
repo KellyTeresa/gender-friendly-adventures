@@ -1,68 +1,33 @@
-<%= form_for [@business, @review] do |f| %>
-  <h5>Please fill out any applicable sections, based on your visit:</h5>
+<div class="rating">
+  <%= form_for [@business, @review] do |f| %>
+    <h5>Please fill out applicable sections, based on your visit:</h5>
 
-  <h6>Do staff refer to customers with genered terms?</h6>
-  <ul class="rating">
-    <li><%= f.label :terminology, "1 - Constantly", value: 1 %>
-    <%= f.radio_button :terminology, 1 %></li>
+    <h6>Do staff refer to customers with genered terms?</h6>
+    <%= f.select :terminology, options_for_select(Review.terminology_options),
+      prompt: true %>
 
-    <li><%= f.label :terminology, "2 - Frequently", value: 2 %>
-    <%= f.radio_button :terminology, 2 %></li>
+    <h6>What's the deal with bathrooms?</h6>
+    <%= f.select :bathrooms, options_for_select(Review.bathroom_options),
+      prompt: true %>
 
-    <li><%= f.label :terminology, "3 - Occasionaly", value: 3 %>
-    <%= f.radio_button :terminology, 3 %></li>
+    <h6>Do you know any openly trans or non-binary people who work there?</h6>
+    <ul>
+      <li><%= f.check_box :gv_staff, value: true %>
+      <%= f.label :gv_staff, "Yes" %></li>
+      <li><%= f.check_box :gv_staff, value: false %>
+      <%= f.label :gv_staff, "No" %></li>
+    </ul>
 
-    <li><%= f.label :terminology, "4 - Rarely.", value: 4 %>
-    <%= f.radio_button :terminology, 4 %></li>
+    <h6>How was your experience overall? (1 - Terrible, 5 - Awesome!)*</h6>
+    <% (1..5).each do |rating_value| %>
+      <%= f.radio_button :overall, rating_value %>
+      <%= f.label :overall, rating_value, value: rating_value %>
+    <% end %>
 
-    <li><%= f.label :terminology, "5 - Never, yay!", value: 5 %>
-    <%= f.radio_button :terminology, 5 %></li>
-  </ul>
+    <h6>Comment*</h6>
+    <%= f.text_area :comment %>
 
-  <h6>Do you know any openly trans or non-binary people who work there?</h6>
-  <ul class="rating">
-    <li><%= f.check_box :gv_staff, value: true %>
-    <%= f.label :gv_staff, "Yes" %></li>
-    <li><%= f.check_box :gv_staff, value: false %>
-    <%= f.label :gv_staff, "No" %></li>
-  </ul>
-
-  <h6>What's the deal with bathrooms?</h6>
-  <ul class="rating">
-    <li>
-      <%= f.label :bathrooms, "1 - Gender based multi-stall horror", value: 1 %>
-      <%= f.radio_button :bathrooms, 1 %>
-    </li>
-    <li>
-      <%= f.label :bathrooms, "2 - Gender based single stall,
-        requires key/code", value: 2 %>
-      <%= f.radio_button :bathrooms, 2 %>
-    </li>
-    <li>
-      <%= f.label :bathrooms, "3 - Gender based single stall, no policing of
-        who uses which one.", value: 3 %>
-      <%= f.radio_button :bathrooms, 3 %>
-    </li>
-    <li>
-      <%= f.label :bathrooms, "4 - Gender neutral available, but specifically
-        for family and/or accessible use only.", value: 4 %>
-      <%= f.radio_button :bathrooms, 4 %>
-    </li>
-    <li>
-      <%= f.label :bathrooms, "5 - Gender neutral bathrooms only, yay!", value: 5 %>
-      <%= f.radio_button :bathrooms, 5 %>
-    </li>
-  </ul>
-
-  <h6>How was your experience overall? (1 - Terrible, 5 - Awesome!)*</h6>
-  <% (1..5).each do |rating_value| %>
-    <%= f.radio_button :overall, rating_value %>
-    <%= f.label :overall, rating_value, value: rating_value %>
-  <% end %>
-
-  <%= f.label :comment %>*
-  <%= f.text_area :comment %>
-
-  <%= f.submit "Add Review" %>
-<%- end -%>
-*Required
+    <%= f.submit "Add Review" %>
+  <%- end -%>
+  *Required
+</div>
