@@ -17,30 +17,28 @@
  */
 @import "variables";
 
-// footer {
-//   position: absolute;
-//   top-margin: 300px;
-//   bottom: 0;
-//   width: 100%;
-// }
-//
-// body {
-//   height: 100%
-// }
+$footer-height: 100px;
+
+.wrapper {
+  min-height: calc(100% - #{$footer-height});
+}
+
+footer {
+  height: $footer-height;
+  margin-top: 1em;
+  text-align: center;
+}
 
 .footer {
-  background-color: $oil;
+  background-color: $secondary-color;
   font-size: 1.2rem;
-  padding: 1rem;
-  text-align: center;
+  padding-top: 1.5rem;
 
   .links li {
-    color: $white;
+    color: $color-secondary-2-1;
     display: inline-block;
     font-weight: bold;
     list-style: none;
-    margin: 0;
-    padding: 2rem 0;
 
     &::after {
       content: "★";
@@ -50,6 +48,10 @@
     &:last-child::after {
       content: "";
     }
+  }
+
+  a {
+    color: $white;
   }
 }
 

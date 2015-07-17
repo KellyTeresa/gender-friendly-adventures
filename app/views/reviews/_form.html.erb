@@ -1,3 +1,5 @@
+<h3>New Rating For: <%= @business.name %> </h3>
+
 <div class="rating">
   <%= form_for [@business, @review] do |f| %>
     <h5>Please fill out applicable sections, based on your visit:</h5>
@@ -14,7 +16,7 @@
     <%= f.radio_button :gv_staff, true %>
     <%= f.label :gv_staff, "Yes", value: true %>
     <%= f.radio_button :gv_staff, false %>
-    <%= f.label :gv_staff, "No", value: false%><
+    <%= f.label :gv_staff, "No", value: false%>
 
     <h6>How was your experience overall? (1 - Terrible, 5 - Awesome!)*</h6>
     <% (1..5).each do |rating_value| %>
