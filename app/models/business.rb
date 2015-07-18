@@ -2,8 +2,8 @@ require 'uri'
 
 class Business < ActiveRecord::Base
   has_many :reviews
-  has_many :businesses_categories
-  has_many :categories, through: :businesses_categories
+  has_many :business_categories
+  has_many :categories, through: :business_categories
   validates :name, presence: true
   validates :address, presence: true
   validates :summary, presence: true, length: { in: 25..250 }
