@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "add a review" do
-  let (:venue) { FactoryGirl.create(:business) }
+  let (:venue) { FactoryGirl.create(:venue) }
   let (:user) { FactoryGirl.create(:user) }
   let (:review) { FactoryGirl.build(:review) }
 
@@ -9,7 +9,7 @@ feature "add a review" do
     before(:each) do
       visit new_user_session_path
       sign_in_as(user)
-      visit business_path(venue)
+      visit venue_path(venue)
       click_link "Add Review"
     end
 
@@ -42,15 +42,15 @@ feature "add a review" do
   end
 
   context "not signed in" do
-    scenario "from business show page" do
-      visit business_path(venue)
+    scenario "from venue show page" do
+      visit venue_path(venue)
       click_link "Add Review"
       expect(page).to have_content "You need to sign in
         or sign up before continuing."
     end
 
     scenario "from url" do
-      visit new_business_review_path(venue)
+      visit new_venue_review_path(venue)
       expect(page).to have_content "You need to sign in
         or sign up before continuing."
     end

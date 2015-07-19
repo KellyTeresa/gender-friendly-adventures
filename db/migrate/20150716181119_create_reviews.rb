@@ -1,7 +1,7 @@
 class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
-      t.belongs_to :business, null: false
+      t.belongs_to :venue, null: false
       t.belongs_to :user, null: false
       t.integer :terminology
       t.integer :bathrooms

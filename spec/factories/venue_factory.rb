@@ -1,6 +1,6 @@
 require 'faker'
 FactoryGirl.define do
-  factory :business do
+  factory :venue do
     name { Faker::Company.name }
     address { Faker::Address.street_address }
     summary "This is a nice place to hang out."

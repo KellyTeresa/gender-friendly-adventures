@@ -1,8 +1,8 @@
-class ChangeBusinesses < ActiveRecord::Migration
+class Changevenues < ActiveRecord::Migration
   def change
-    rename_column :businesses, :address, :street_address
-    add_column :businesses, :city, :string, null: false
-    add_column :businesses, :state, :string, null: false
-    add_column :businesses, :zip_code, :string, null: false
+    rename_column :venues, :address, :street_address
+    add_column :venues, :city, :string, null: false
+    add_column :venues, :state, :string, null: false
+    add_column :venues, :zip_code, :string, null: false
   end
 end

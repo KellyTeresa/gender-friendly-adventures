@@ -2,19 +2,19 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
-    @business = Business.find(params[:business_id])
+    @venue = venue.find(params[:venue_id])
     @review = Review.new
   end
 
   def create
-    @business = Business.find(params[:business_id])
+    @venue = venue.find(params[:venue_id])
     @review = Review.new(review_params)
-    @review.business = @business
+    @review.venue = @venue
     @review.user = current_user
 
     if @review.save
       flash[:success] = "Review added!"
-      redirect_to business_path(@business)
+      redirect_to venue_path(@venue)
     else
       announce_errors(@review)
       render :new

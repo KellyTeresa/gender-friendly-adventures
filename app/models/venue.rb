@@ -1,9 +1,9 @@
 require 'uri'
 
-class Business < ActiveRecord::Base
+class Venue < ActiveRecord::Base
   has_many :reviews
-  has_many :business_categories
-  has_many :categories, through: :business_categories
+  has_many :venue_categories
+  has_many :categories, through: :venue_categories
   validates :name, presence: true
   validates :street_address, presence: true
   validates :city, presence: true

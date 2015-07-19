@@ -1,6 +1,6 @@
-class CreateBusinesses < ActiveRecord::Migration
+class Createvenues < ActiveRecord::Migration
   def change
-    create_table :businesses do |t|
+    create_table :venues do |t|
       t.string :name, null: false
       t.string :address, null: false
       t.string :summary, null: false

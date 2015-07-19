@@ -1,33 +1,33 @@
-class BusinessesController < ApplicationController
+class venuesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @businesses = Business.all
+    @venues = venue.all
   end
 
   def show
-    @business = Business.find(params[:id])
+    @venue = venue.find(params[:id])
   end
 
   def new
-    @business = Business.new
+    @venue = venue.new
   end
 
   def create
-    @business = Business.new(business_params)
-    if @business.save
+    @venue = venue.new(venue_params)
+    if @venue.save
       flash[:success] = 'Venue saved'
-      redirect_to business_path(@business)
+      redirect_to venue_path(@venue)
     else
-      announce_errors(@business)
+      announce_errors(@venue)
       render :new
     end
   end
 
   private
 
-  def business_params
-    params.require(:business).permit(
+  def venue_params
+    params.require(:venue).permit(
       :name,
       :address,
       :summary,

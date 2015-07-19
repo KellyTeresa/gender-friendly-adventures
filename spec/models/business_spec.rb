@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Business, type: :model do
-  context "a new business" do
+RSpec.describe venue, type: :model do
+  context "a new venue" do
     cafe = {
       name: "A Cool Cafe",
       address: "1234 Street Ave. Boston, MA",
@@ -20,16 +20,16 @@ RSpec.describe Business, type: :model do
       Cake macaroon pudding lollipop."
 
     it "is valid if only required information is provided" do
-      business = Business.new(
+      venue = venue.new(
         name: cafe[:name],
         address: cafe[:address],
         summary: cafe[:summary]
       )
-      expect(business.valid?).to eq true
+      expect(venue.valid?).to eq true
     end
 
     it "is valid if optional information is also provided" do
-      business = Business.new(
+      venue = venue.new(
         name: cafe[:name],
         address: cafe[:address],
         summary: cafe[:summary],
@@ -37,54 +37,54 @@ RSpec.describe Business, type: :model do
         website: "http://www.a-cool-cafe.com",
         phone_number: "617-123-4567"
         )
-      expect(business.valid?).to eq true
+      expect(venue.valid?).to eq true
     end
 
     it "is not valid if information is missing" do
-      business = Business.new(
+      venue = venue.new(
         name: cafe[:name],
         )
-      expect(business.valid?).to eq false
+      expect(venue.valid?).to eq false
     end
 
     it "is not valid if the url is not proper format" do
-      business = Business.new(
+      venue = venue.new(
         name: cafe[:name],
         address: cafe[:address],
         summary: cafe[:summary],
         website: "a-cool-cafe.com"
       )
-      expect(business.valid?).to eq false
+      expect(venue.valid?).to eq false
     end
 
     context "is not valid if the summary is wrong length" do
       it "is too long" do
-        business = Business.new(
+        venue = venue.new(
           name: cafe[:name],
           address: cafe[:address],
           summary: description
           )
-        expect(business.valid?).to eq false
+        expect(venue.valid?).to eq false
       end
 
       it "is too short" do
-        business = Business.new(
+        venue = venue.new(
           name: cafe[:name],
           address: cafe[:address],
           summary: "A cafe."
           )
-        expect(business.valid?).to eq false
+        expect(venue.valid?).to eq false
       end
     end
 
     it "is not valid if the description is too long" do
-      business = Business.new(
+      venue = venue.new(
         name: cafe[:name],
         address: cafe[:address],
         summary: cafe[:summary],
         description: description * 2
       )
-      expect(business.valid?).to eq false
+      expect(venue.valid?).to eq false
     end
   end
 end
