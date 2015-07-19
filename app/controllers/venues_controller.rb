@@ -39,13 +39,4 @@ class VenuesController < ApplicationController
       :phone_number
     )
   end
-
-  def announce_errors(venue)
-    count = venue.errors.count
-    flash[:alert] = %(
-      #{count} #{'error'.pluralize(count)}
-      prohibited this venue from being saved:
-      #{venue.errors.full_messages.join('. ')}
-    )
-  end
 end

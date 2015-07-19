@@ -5,6 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  def announce_errors(item)
+    count = item.errors.count
+    flash[:alert] = %(
+      #{count} #{'error'.pluralize(count)}
+      prohibited this #{item.class.name.downcase} from being saved:
+      #{item.errors.full_messages.join('. ')}
+    )
+  end
+
   protected
 
   def configure_permitted_parameters

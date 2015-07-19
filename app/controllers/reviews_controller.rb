@@ -32,13 +32,4 @@ class ReviewsController < ApplicationController
       :comment
     )
   end
-
-  def announce_errors(review)
-    count = review.errors.count
-    flash[:alert] = %(
-      #{count} #{'error'.pluralize(count)}
-      prohibited this review from being saved:
-      #{review.errors.full_messages.join('. ')}
-    )
-  end
 end
