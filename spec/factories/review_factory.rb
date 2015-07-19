@@ -5,5 +5,7 @@ FactoryGirl.define do
     gv_staff false
     overall 3
     comment "It was okay. Nothing special. I was a little uncomfortable."
+    user
+    venue
   end
 end

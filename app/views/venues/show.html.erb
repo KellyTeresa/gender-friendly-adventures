@@ -1,0 +1,31 @@
+<h3><%= @venue.name %></h3>
+<div class="venue-info">
+  <ul>
+    <li><%= @venue.full_address %></li>
+    <% unless @venue.phone_number.blank? %>
+      <li><%= @venue.phone_number %></li>
+    <% end %>
+    <% unless @venue.website.blank? %>
+      <li><%= @venue.website %></li>
+    <% end %>
+    <li><%= @venue.summary %></li>
+    <% unless @venue.description.blank? %>
+      <li><%= @venue.description %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="reviews">
+  <h5>Reviews</h5>
+  <%= link_to 'Add Review', new_venue_review_path(@venue) %>
+
+  <ul>
+    <% if @venue.reviews.length == 0 %>
+      <li>There are no reviews yet.</li>
+    <% else %>
+      <% @venue.reviews.each do |review| %>
+        <li><%= "#{review.overall} points overall. #{review.comment} - #{review.user.display_name}" %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

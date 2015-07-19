@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :business
+  belongs_to :venue
   belongs_to :user
   validates :comment, presence: true, length: { in: 25..500 }
   validates :overall, presence: true, numericality: { only_integer: true }

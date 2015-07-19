@@ -6,9 +6,9 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    create_table :business_categories do |t|
+    create_table :venue_categories do |t|
       t.belongs_to :category, null: false
-      t.belongs_to :business, null: false
+      t.belongs_to :venue, null: false
 
       t.timestamps null: false
     end
