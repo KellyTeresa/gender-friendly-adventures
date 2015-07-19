@@ -1,6 +1,16 @@
 <h3>List of Venues</h3>
-<ul>
+<ul class="venues">
   <% @venues.each do |venue| %>
-    <%= link_to venue.name, venue_path(venue) %>
+    <li>
+      <%= link_to venue.name, venue_path(venue) %><br>
+      <%= venue.full_address %>
+      <% if venue.reviews.count >= 2 %>
+        <br>
+        <%= "#{venue.overall_average} out of 5 overall.
+        #{venue.average_rating_terminology} out of 5 staff terminology.
+        #{venue.average_rating_bathrooms} out of 5 bathrooms.
+        Based on #{venue.reviews.count} reviews."%>
+      <% end %>
+    </li>
   <%- end -%>
 </ul>

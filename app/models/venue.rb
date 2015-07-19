@@ -16,27 +16,30 @@ class Venue < ActiveRecord::Base
     allow_blank: true
 
   def full_address
-    "#{street_address}, #{city}, #{state} #{zip_code}"
+    "#{street_address}, #{city}, #{state}, #{zip_code}."
   end
 
-  def average_rating(type)
-    if type = overall
-      reviews.sum(:overall) / reviews.count
-      
-    else
-      ratings = []
-      count = 0
+  def overall_average
+    reviews.sum(:overall) / reviews.count
+  end
 
-      reviews.each do |review|
-        unless review.type.nil?
-          ratings << review.type
-          count += 1
-        end
+  def average_rating_terminology
+    ratings = []
+    reviews.each do |review|
+      unless review.terminology.nil?
+        ratings << review.terminology
       end
-
-      ratings.sum / count
-
     end
+    ratings.sum / ratings.count
   end
 
+  def average_rating_bathrooms
+    ratings = []
+    reviews.each do |review|
+      unless review.bathrooms.nil?
+        ratings << review.bathrooms
+      end
+    end
+    ratings.sum / ratings.count
+  end
 end
