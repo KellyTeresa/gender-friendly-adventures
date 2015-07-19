@@ -1,7 +1,7 @@
 <h3><%= @venue.name %></h3>
 <div class="venue-info">
   <ul>
-    <li><%= @venue.address %></li>
+    <li><%= @venue.full_address %></li>
     <% unless @venue.phone_number.blank? %>
       <li><%= @venue.phone_number %></li>
     <% end %>

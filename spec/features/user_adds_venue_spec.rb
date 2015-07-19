@@ -13,11 +13,14 @@ feature "adding a venue" do
     scenario "correctly provide information" do
       visit new_venue_path
       fill_in "Name", with: venue.name
-      fill_in "Address", with: venue.address
+      fill_in "Street address", with: venue.street_address
+      fill_in "City", with: venue.city
+      fill_in "State", with: venue.state
+      fill_in "Zip code", with: venue.zip_code
       fill_in "Short description", with: venue.summary
       click_button "Submit"
       expect(page).to have_content venue.name
-      expect(page).to have_content venue.address
+      expect(page).to have_content venue.street_address
       expect(page).to have_content venue.summary
       expect(page).to have_content "Venue saved"
     end

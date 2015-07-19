@@ -1,20 +1,20 @@
-class venuesController < ApplicationController
+class VenuesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @venues = venue.all
+    @venues = Venue.all
   end
 
   def show
-    @venue = venue.find(params[:id])
+    @venue = Venue.find(params[:id])
   end
 
   def new
-    @venue = venue.new
+    @venue = Venue.new
   end
 
   def create
-    @venue = venue.new(venue_params)
+    @venue = Venue.new(venue_params)
     if @venue.save
       flash[:success] = 'Venue saved'
       redirect_to venue_path(@venue)
@@ -29,7 +29,10 @@ class venuesController < ApplicationController
   def venue_params
     params.require(:venue).permit(
       :name,
-      :address,
+      :street_address,
+      :city,
+      :state,
+      :zip_code,
       :summary,
       :description,
       :website,

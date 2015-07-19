@@ -2,7 +2,10 @@ require 'faker'
 FactoryGirl.define do
   factory :venue do
     name { Faker::Company.name }
-    address { Faker::Address.street_address }
+    street_address { Faker::Address.street_address }
+    city "Boston"
+    state "MA"
+    zip_code "02144"
     summary "This is a nice place to hang out."
 
     trait :has_description do

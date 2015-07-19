@@ -3,14 +3,19 @@
     <%= f.label :name %>*
     <%= f.text_field :name %>
 
-    <%= f.label :address %>*
-    <%= f.text_field :address %>
+    <div class="address-fields">
+      <%= f.label :street_address %>*
+      <%= f.text_field :street_address %>
 
-    <%= f.label :summary, "Short description" %>*
-    <%= f.text_field :summary %>
+      <%= f.label :city %>*
+      <%= f.text_field :city %>
 
-    <%= f.label :description, "Long description" %>
-    <%= f.text_area :description %>
+      <%= f.label :state %>*
+      <%= f.text_field :state %>
+
+      <%= f.label :zip_code %>*
+      <%= f.text_field :zip_code %>
+    </div>
 
     <%= f.label :website %>
     <%= f.text_field :website %>
@@ -18,9 +23,11 @@
     <%= f.label :phone_number %>
     <%= f.text_field :phone_number %>
 
-    <!-- <% Category.all.each do |category| %>
-      <% f.check_box category.name %>
-    <% end %> -->
+    <%= f.label :summary, "Short description" %>*
+    <%= f.text_field :summary %>
+
+    <%= f.label :description, "Long description" %>
+    <%= f.text_area :description %>
 
     <%= f.submit "Submit" %>
   <%- end -%>
