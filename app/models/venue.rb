@@ -20,7 +20,7 @@ class Venue < ActiveRecord::Base
   end
 
   def overall_average
-    reviews.sum(:overall) / reviews.count
+    "Overall: #{smile_display(reviews.sum(:overall) / reviews.count)}."
   end
 
   def average_rating_terminology
@@ -30,7 +30,11 @@ class Venue < ActiveRecord::Base
         ratings << review.terminology
       end
     end
-    ratings.sum / ratings.count
+    if ratings.count > 0
+      "Staff terminology: #{smile_display(ratings.sum / ratings.count)}."
+    else
+      "No data on terminology."
+    end
   end
 
   def average_rating_bathrooms
@@ -40,6 +44,24 @@ class Venue < ActiveRecord::Base
         ratings << review.bathrooms
       end
     end
-    ratings.sum / ratings.count
+    if ratings.count > 0
+      "Bathrooms: #{smile_display(ratings.sum / ratings.count)}."
+    else
+      "No data on bathrooms."
+    end
+  end
+
+  def smile_display(score)
+    if score >= 4.5
+      "😍"
+    elsif score >= 3.5
+      "😃"
+    elsif score >= 2.5
+      "😐"
+    elsif score >= 1.5
+      "😔"
+    else
+      "😡"
+    end
   end
 end

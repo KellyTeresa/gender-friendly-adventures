@@ -14,9 +14,9 @@
     <% end %>
     <% if @venue.reviews.count >= 2 %>
       <li>
-      <%= "#{@venue.overall_average} out of 5 overall.
-      #{@venue.average_rating_terminology} out of 5 staff terminology.
-      #{@venue.average_rating_bathrooms} out of 5 bathrooms.
+      <%= "#{@venue.overall_average}
+      #{@venue.average_rating_terminology}
+      #{@venue.average_rating_bathrooms}
       Based on #{@venue.reviews.count} reviews."%></li>
     <% end %>
   </ul>
