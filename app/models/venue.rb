@@ -1,7 +1,7 @@
 require "uri"
 
 class Venue < ActiveRecord::Base
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   has_many :venue_categories
   has_many :categories, through: :venue_categories
   validates :name, presence: true
@@ -16,6 +16,30 @@ class Venue < ActiveRecord::Base
     allow_blank: true
 
   def full_address
-    "#{street_address}, #{city}, #{state} #{zip_code}"
+    "#{street_address}, #{city}, #{state}, #{zip_code}."
+  end
+
+  def overall_average
+    reviews.sum(:overall) / reviews.count
+  end
+
+  def average_rating_terminology
+    ratings = []
+    reviews.each do |review|
+      unless review.terminology.nil?
+        ratings << review.terminology
+      end
+    end
+    ratings.sum / ratings.count
+  end
+
+  def average_rating_bathrooms
+    ratings = []
+    reviews.each do |review|
+      unless review.bathrooms.nil?
+        ratings << review.bathrooms
+      end
+    end
+    ratings.sum / ratings.count
   end
 end
