@@ -7,14 +7,17 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
+    @categories = @venue.categories
   end
 
   def new
     @venue = Venue.new
+    @categories = Category.all
   end
 
   def create
     @venue = Venue.new(venue_params)
+    @categories = Category.all
     if @venue.save
       flash[:success] = 'Venue saved'
       redirect_to venue_path(@venue)
@@ -36,7 +39,8 @@ class VenuesController < ApplicationController
       :summary,
       :description,
       :website,
-      :phone_number
+      :phone_number,
+      category_ids: []
     )
   end
 end
