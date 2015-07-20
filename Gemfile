@@ -60,6 +60,7 @@ gem 'kaminari'
 gem 'modernizr-rails'
 gem 'dotenv-rails'
 gem 'pg_search'
+gem 'puma'
 
 # group :test do
 #   gem 'coveralls', require: false
