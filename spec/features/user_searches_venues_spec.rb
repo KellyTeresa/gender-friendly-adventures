@@ -24,5 +24,4 @@ feature "search venues" do
     click_button 'Search'
     expect(page).to have_content "Please specify a search phrase"
   end
-
 end
