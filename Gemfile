@@ -60,9 +60,7 @@ gem 'foundation-rails'
 gem 'kaminari'
 gem 'modernizr-rails'
 gem 'dotenv-rails'
-# gem 'carrierwave'
-# gem 'fog'
-gem 'omniauth'
+gem 'pg_search'
 
 # group :test do
 #   gem 'coveralls', require: false

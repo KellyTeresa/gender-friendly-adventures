@@ -108,4 +108,13 @@ RSpec.describe Venue, type: :model do
       expect(venue.valid?).to eq false
     end
   end
+
+  context "search" do
+    it "matches by name" do
+      5.times { FactoryGirl.create(:venue) }
+
+      results = Venue.search(Venue.last.name)
+      expect(results).to include(Venue.last)
+    end
+  end
 end
