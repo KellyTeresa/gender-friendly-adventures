@@ -17,6 +17,15 @@ class Venue < ActiveRecord::Base
     format: { with: URI::regexp(%w(http https)) },
     allow_blank: true
 
+  include PgSearch
+  pg_search_scope :search,
+    against: [
+      :name, :street_address, :city, :state, :zip_code, :summary, :description
+    ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   def full_address
     "#{street_address} #{city}, #{state} #{zip_code}."
   end

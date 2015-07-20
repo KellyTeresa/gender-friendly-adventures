@@ -44,7 +44,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
-  gem 'launchy'
   gem 'factory_girl_rails'
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
@@ -60,9 +59,7 @@ gem 'foundation-rails'
 gem 'kaminari'
 gem 'modernizr-rails'
 gem 'dotenv-rails'
-# gem 'carrierwave'
-# gem 'fog'
-gem 'omniauth'
+gem 'pg_search'
 
 # group :test do
 #   gem 'coveralls', require: false
