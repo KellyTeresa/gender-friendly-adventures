@@ -18,6 +18,11 @@
       <section class="top-bar-section">
         <ul class="left">
           <li><%= link_to 'Add Venue', new_venue_path %></li>
+          <li><%= form_tag venues_path, method: :get do %>
+            <%= text_field_tag :q, params[:q] %>
+            <%= submit_tag 'Search' %>
+            <% end %>
+          </li>
         </ul>
         <ul class="right">
           <%- if current_user -%>

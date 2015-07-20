@@ -2,7 +2,13 @@ class VenuesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @venues = Venue.all
+    if params[:q] == ''
+      flash[:alert] = "Please specify a search phrase"
+    elsif params[:q].present?
+      @venues = Venue.search(params[:q])
+    else
+      @venues = Venue.all
+    end
   end
 
   def show

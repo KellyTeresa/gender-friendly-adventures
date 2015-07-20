@@ -111,9 +111,16 @@ RSpec.describe Venue, type: :model do
 
   context "search" do
     it "matches by name" do
-      5.times { FactoryGirl.create(:venue) }
+      3.times { FactoryGirl.create(:venue) }
 
       results = Venue.search(Venue.last.name)
+      expect(results).to include(Venue.last)
+    end
+
+    it "matches by partial name" do
+      3.times { FactoryGirl.create(:venue) }
+
+      results = Venue.search(Venue.last.name[0..3])
       expect(results).to include(Venue.last)
     end
   end
