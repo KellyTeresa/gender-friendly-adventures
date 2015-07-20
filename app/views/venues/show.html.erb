@@ -12,11 +12,18 @@
     <% unless @venue.description.blank? %>
       <li><%= @venue.description %></li>
     <% end %>
+    <% unless @categories.length == 0 %>
+      <li>Categories:
+      <% @categories.each do |category| %>
+        <%= category.name %>
+      <% end %>
+      </li>
+    <% end %>
     <% if @venue.reviews.count >= 2 %>
       <li>
       <%= "#{@venue.overall_average}
-      #{@venue.average_rating_terminology}
-      #{@venue.average_rating_bathrooms}
+      #{@venue.average_rating(:terminology)}
+      #{@venue.average_rating(:bathrooms)}
       Based on #{@venue.reviews.count} reviews."%></li>
     <% end %>
   </ul>

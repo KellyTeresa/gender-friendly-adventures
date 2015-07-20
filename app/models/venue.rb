@@ -4,6 +4,9 @@ class Venue < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :venue_categories
   has_many :categories, through: :venue_categories
+  accepts_nested_attributes_for :venue_categories
+  accepts_nested_attributes_for :categories
+
   validates :name, presence: true
   validates :street_address, presence: true
   validates :city, presence: true
@@ -16,38 +19,24 @@ class Venue < ActiveRecord::Base
     allow_blank: true
 
   def full_address
-    "#{street_address}, #{city}, #{state}, #{zip_code}."
+    "#{street_address} #{city}, #{state} #{zip_code}."
   end
 
   def overall_average
     "Overall: #{smile_display(reviews.sum(:overall) / reviews.count)}."
   end
 
-  def average_rating_terminology
+  def average_rating(kind_of_review)
     ratings = []
     reviews.each do |review|
-      unless review.terminology.nil?
-        ratings << review.terminology
-      end
+      ratings << review.try(kind_of_review)
     end
+    ratings.reject!{ |rating| rating.nil? }
     if ratings.count > 0
-      "Staff terminology: #{smile_display(ratings.sum / ratings.count)}."
+      "#{kind_of_review.capitalize}: #{smile_display(
+        ratings.sum / ratings.count)}."
     else
-      "No data on terminology."
-    end
-  end
-
-  def average_rating_bathrooms
-    ratings = []
-    reviews.each do |review|
-      unless review.bathrooms.nil?
-        ratings << review.bathrooms
-      end
-    end
-    if ratings.count > 0
-      "Bathrooms: #{smile_display(ratings.sum / ratings.count)}."
-    else
-      "No data on bathrooms."
+      "No data on #{kind_of_review}."
     end
   end
 

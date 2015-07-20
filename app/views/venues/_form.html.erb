@@ -1,5 +1,7 @@
 <div class="form">
+  <p>*Required</p>
   <%= form_for @venue do |f| %>
+  <div class="small-12 medium-7 columns">
     <%= f.label :name %>*
     <%= f.text_field :name %>
 
@@ -30,6 +32,13 @@
     <%= f.text_area :description %>
 
     <%= f.submit "Submit" %>
+  </div>
+  <div class="small-12 medium-5 columns">
+    <%= f.collection_check_boxes :category_ids,
+      @categories,
+      :id,
+      :name
+    %>
+  </div>
   <%- end -%>
-  <p>*Required</p>
 </div>
