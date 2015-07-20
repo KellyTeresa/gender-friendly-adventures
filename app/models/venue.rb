@@ -4,7 +4,6 @@ class Venue < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :venue_categories
   has_many :categories, through: :venue_categories
-  accepts_nested_attributes_for :venue_categories
   accepts_nested_attributes_for :categories
 
   validates :name, presence: true
@@ -31,7 +30,7 @@ class Venue < ActiveRecord::Base
     reviews.each do |review|
       ratings << review.try(kind_of_review)
     end
-    ratings.reject!{ |rating| rating.nil? }
+    ratings.reject!(&:nil?)
     if ratings.count > 0
       "#{kind_of_review.capitalize}: #{smile_display(
         ratings.sum / ratings.count)}."
