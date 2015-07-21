@@ -40,7 +40,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-# Added by Kelly
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'capybara'
@@ -48,6 +47,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -61,8 +61,9 @@ gem 'modernizr-rails'
 gem 'dotenv-rails'
 gem 'pg_search'
 gem 'puma'
+gem 'geocoder'
 
-# group :test do
-#   gem 'coveralls', require: false
-#   gem "codeclimate-test-reporter", require: nil
-# end
+group :test do
+  gem 'coveralls', require: false
+  # gem "codeclimate-test-reporter", require: nil
+end
