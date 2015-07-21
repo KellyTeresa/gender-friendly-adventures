@@ -1,7 +1,6 @@
 require "rails_helper"
 
 feature "search venues" do
-
   before(:each) do
     FactoryGirl.create(:venue, name: "1369 Coffee House")
     FactoryGirl.create(:venue, name: "Backbar")
