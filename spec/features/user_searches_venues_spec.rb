@@ -1,8 +1,11 @@
 require "rails_helper"
 
 feature "search venues" do
-  FactoryGirl.create(:venue, name: "1369 Coffee House")
-  FactoryGirl.create(:venue, name: "Backbar")
+
+  before(:each) do
+    FactoryGirl.create(:venue, name: "1369 Coffee House")
+    FactoryGirl.create(:venue, name: "Backbar")
+  end
 
   scenario "valid search" do
     visit root_path
