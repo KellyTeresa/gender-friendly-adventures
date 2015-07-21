@@ -26,6 +26,12 @@ class Venue < ActiveRecord::Base
       tsearch: { prefix: true }
     }
 
+  geocoded_by :full_address
+  after_validation :geocode,
+    if: ->(obj){ obj.address.present? and obj.address_changed? }
+  # reverse_geocoded_by :latitude, :longitude
+  # after_validation :reverse_geocode
+
   def full_address
     "#{street_address} #{city}, #{state} #{zip_code}."
   end

@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150718205329) do
+ActiveRecord::Schema.define(version: 20150721154009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "venue_categories", force: :cascade do |t|
+  create_table "business_categories", force: :cascade do |t|
     t.integer  "category_id", null: false
-    t.integer  "venue_id", null: false
+    t.integer  "business_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "venues", force: :cascade do |t|
+  create_table "businesses", force: :cascade do |t|
     t.string   "name",           null: false
     t.string   "street_address", null: false
     t.string   "summary",        null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150718205329) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "venue_id", null: false
+    t.integer  "venue_id",    null: false
     t.integer  "user_id",     null: false
     t.integer  "terminology"
     t.integer  "bathrooms"
@@ -74,5 +74,28 @@ ActiveRecord::Schema.define(version: 20150718205329) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "venue_categories", force: :cascade do |t|
+    t.integer  "category_id", null: false
+    t.integer  "venue_id",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name",           null: false
+    t.string   "street_address", null: false
+    t.string   "summary",        null: false
+    t.text     "description"
+    t.string   "website"
+    t.string   "phone_number"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "city",           null: false
+    t.string   "state",          null: false
+    t.string   "zip_code",       null: false
+    t.float    "latitude"
+    t.float    "longitude"
+  end
 
 end
