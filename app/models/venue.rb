@@ -27,13 +27,11 @@ class Venue < ActiveRecord::Base
     }
 
   geocoded_by :full_address
-  after_validation :geocode,
-    if: ->(obj){ obj.address.present? and obj.address_changed? }
-  # reverse_geocoded_by :latitude, :longitude
-  # after_validation :reverse_geocode
+  after_validation :geocode
+
 
   def full_address
-    "#{street_address} #{city}, #{state} #{zip_code}."
+    "#{street_address}, #{city}, #{state}, #{zip_code}."
   end
 
   def overall_average

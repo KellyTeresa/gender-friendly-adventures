@@ -15,7 +15,7 @@
     <% unless @categories.length == 0 %>
       <li>Categories:
       <% @categories.each do |category| %>
-        <%= category.name %>
+        <%= link_to category.name, category_path(category) %>
       <% end %>
       </li>
     <% end %>
@@ -50,7 +50,21 @@
       <li>There are no reviews yet.</li>
     <% else %>
       <% @venue.reviews.each do |review| %>
-        <li><%= "#{review.overall} points overall. #{review.comment} - #{review.user.display_name}" %></li>
+        <li>
+          <%=
+            "#{review.overall} out of 5 overall.
+            #{review.comment} - #{review.user.display_name}
+            | #{review.created_at.strftime("%d %b. %Y")}"
+          %><br>
+          <%= unless review.terminology.nil?
+            "Did staff use gendered terms?
+            #{Review.terminology_options.invert[review.terminology]}"
+          end %><br>
+          <%= unless review.bathrooms.nil?
+            "Available bathrooms:
+            #{Review.bathroom_options.invert[review.bathrooms]}"
+          end %>
+        </li>
       <% end %>
     <% end %>
   </ul>

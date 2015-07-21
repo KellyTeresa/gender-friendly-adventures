@@ -1,20 +1,30 @@
-<h3>List of Venues</h3>
-<% if @venues.nil? || @venues.count == 0%>
-  <p>No results.</p>
-<% else %>
-  <ul class="venues">
-    <% @venues.each do |venue| %>
-      <li>
-        <%= link_to venue.name, venue_path(venue) %><br>
-        <%= venue.full_address %>
-        <% if venue.reviews.count >= 2 %>
-          <br>
-          <%= "#{venue.overall_average}
-          #{venue.average_rating(:terminology)}
-          #{venue.average_rating(:bathrooms)}
-          Based on #{venue.reviews.count} reviews."%>
-        <% end %>
-      </li>
-    <%- end -%>
+<div class="small-6 medium-9 columns">
+  <h3>List of Venues</h3>
+  <% if @venues.nil? || @venues.count == 0%>
+    <p>No results.</p>
+  <% else %>
+    <ul class="venues">
+      <% @venues.each do |venue| %>
+        <li>
+          <%= link_to venue.name, venue_path(venue) %><br>
+          <%= venue.full_address %>
+          <% if venue.reviews.count >= 2 %>
+            <br>
+            <%= "#{venue.overall_average}
+            #{venue.average_rating(:terminology)}
+            #{venue.average_rating(:bathrooms)}
+            Based on #{venue.reviews.count} reviews."%>
+          <% end %>
+        </li>
+      <%- end -%>
+    </ul>
+  <%-end-%>
+</div>
+<div class="small-6 medium-3 columns">
+  <h4>Categories</h4>
+  <ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category) %></li>
+  <% end %>
   </ul>
-<%-end-%>
+</div>

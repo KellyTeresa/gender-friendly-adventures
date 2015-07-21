@@ -47,6 +47,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -62,7 +63,7 @@ gem 'pg_search'
 gem 'puma'
 gem 'geocoder'
 
-# group :test do
-#   gem 'coveralls', require: false
-#   gem "codeclimate-test-reporter", require: nil
-# end
+group :test do
+  gem 'coveralls', require: false
+  # gem "codeclimate-test-reporter", require: nil
+end
