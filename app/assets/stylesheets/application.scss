@@ -62,7 +62,18 @@ footer {
   text-align: center;
 }
 
-.top-bar-section input {
-  font-size: 0.7rem;
-  max-width: 100px;
+.top-bar-section {
+  input, .button {
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    border-color: $primary-color;
+  }
+
+  .button {
+    padding: 1px;
+  }
+
+  .transparent {
+    background: transparent;
+  }
 }

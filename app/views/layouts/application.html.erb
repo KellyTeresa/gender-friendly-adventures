@@ -5,6 +5,8 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href=<%= image_path(favicon) %>>
+  <link rel="icon" href=<%= image_path(favicon) %>>
 </head>
 <body>
   <div class="wrapper">
@@ -20,8 +22,16 @@
         <ul class="left">
           <li><%= link_to 'Add Venue', new_venue_path %></li>
           <li><%= form_tag venues_path, method: :get do %>
-            <li><%= text_field_tag :q, params[:q] %></li>
-            <li><%= submit_tag 'Search' %></li>
+            <div class="row collapse postfix-round">
+              <div class="small-9 columns">
+                <%= text_field_tag :q, params[:q],
+                  placeholder: 'Quick Search',
+                  class: 'transparent' %>
+              </div>
+              <div class="small-3 columns">
+                <%= submit_tag 'Go', class: 'button postfix round' %>
+              </div>
+            </div>
           <% end %></li>
         </ul>
         <ul class="right">
@@ -38,7 +48,7 @@
     </nav>
 
     <% flash.each do |type, message| %>
-      <div data-alert class="alert-box <%= type %> round">
+      <div data-alert class="alert-box <%= type %>">
         <%= message %>
         <a href="#" class="close">&times;</a>
       </div>
