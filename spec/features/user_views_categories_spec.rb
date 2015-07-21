@@ -8,7 +8,6 @@ feature "user views a category" do
     let (:venue2) { FactoryGirl.create(:venue, categories: [diner]) }
     xscenario "from root" do
       visit root_path
-      binding.pry
       click_link "Cafe"
       expect(page).to have_content venue1.name
       expect(page).to_not have_content venue1.name
