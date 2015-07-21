@@ -1,6 +1,7 @@
 <h3><%= @category.name %></h3>
-<ul>
-  <% @venues.each do |venue| %>
-    <li><%= link_to venue.name, venue_path(venue) %></li>
-  <% end %>
-</ul>
+
+  <ul>
+    <% @venues.each do |venue| %>
+      <li><%= link_to venue.name, venue_path(venue) %></li>
+    <% end %>
+  </ul>
