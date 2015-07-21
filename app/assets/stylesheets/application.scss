@@ -77,3 +77,27 @@ footer {
     background: transparent;
   }
 }
+
+ul {
+  margin: 0;
+}
+
+.venues, .reviews {
+  li {
+    text-decoration: none;
+    display: block;
+    margin-bottom: 1rem;
+  }
+}
+.categories li {
+  display: inline-block;
+
+  &::after {
+    content: " |";
+    color: $secondary-color;
+  }
+
+  &:last-child::after {
+    content: "";
+  }
+}

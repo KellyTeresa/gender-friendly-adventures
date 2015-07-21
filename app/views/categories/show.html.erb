@@ -2,7 +2,7 @@
 <% if @venues.length == 0 %>
   <p>No venues in this category yet.</p>
 <% else %>
-  <ul>
+  <ul class="venues">
     <% @venues.each do |venue| %>
       <li><%= link_to venue.name, venue_path(venue) %></li>
     <% end %>
