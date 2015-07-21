@@ -1,6 +1,6 @@
 <div class="venue-info small-12 medium-6 columns">
   <h3><%= @venue.name %></h3>
-  <ul>
+  <ul class="venues">
     <li><%= @venue.full_address %></li>
     <% unless @venue.phone_number.blank? %>
       <li><%= @venue.phone_number %></li>
@@ -43,9 +43,8 @@
 
 <div class="reviews small-12 columns">
   <h5>Reviews</h5>
-  <%= link_to 'Add Review', new_venue_review_path(@venue) %>
-
-  <ul>
+  <ul class="reviews">
+    <li><%= link_to 'Add Review', new_venue_review_path(@venue) %></li>
     <% if @venue.reviews.length == 0 %>
       <li>There are no reviews yet.</li>
     <% else %>

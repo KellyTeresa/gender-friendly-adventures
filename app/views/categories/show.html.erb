@@ -1,7 +1,10 @@
 <h3><%= @category.name %></h3>
-
-  <ul>
+<% if @venues.length == 0 %>
+  <p>No venues in this category yet.</p>
+<% else %>
+  <ul class="venues">
     <% @venues.each do |venue| %>
       <li><%= link_to venue.name, venue_path(venue) %></li>
     <% end %>
   </ul>
+<% end %>
