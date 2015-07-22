@@ -35,7 +35,7 @@ class VenuesController < ApplicationController
 
     if @venue.save
       if @venue.approved?
-        flash[:success] = 'Venue added.'
+        flash[:success] = "Venue added."
         redirect_to venue_path(@venue)
       else
         flash[:success] = "Venue queued for approval."

@@ -4,12 +4,18 @@ feature "user views a category" do
   context "multiple venues, one shared category" do
     let!(:cafe) { Category.create(name: "Cafe") }
     let!(:diner) { Category.create(name: "Diner") }
-    let!(:venue1) { FactoryGirl.create(:venue,
+    let!(:venue1) { FactoryGirl.create(
+      :venue,
       approved: true,
-      categories: [cafe, diner]) }
-    let!(:venue2) { FactoryGirl.create(:venue,
+      categories: [cafe, diner]
+      )
+    }
+    let!(:venue2) { FactoryGirl.create(
+      :venue,
       approved: true,
-      categories: [diner]) }
+      categories: [diner]
+      )
+    }
 
     scenario "from root" do
       visit root_path
