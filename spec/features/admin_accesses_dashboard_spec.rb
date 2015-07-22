@@ -7,7 +7,7 @@ feature "admin user can access admin dashboard" do
       visit root_path
       sign_in_as(admin)
       visit admin_dashboard_path
-      expect(page).to have_content "View Users"
+      expect(page).to have_content "Manage Users"
       expect(page).to have_content "Pending Venues"
     end
 
@@ -15,7 +15,7 @@ feature "admin user can access admin dashboard" do
       visit root_path
       sign_in_as(admin)
       click_link "Admin Dashboard"
-      expect(page).to have_content "View Users"
+      expect(page).to have_content "Manage Users"
       expect(page).to have_content "Pending Venues"
     end
   end
@@ -26,7 +26,7 @@ feature "admin user can access admin dashboard" do
       visit root_path
       sign_in_as(user)
       visit admin_dashboard_path
-      expect(page).to_not have_content "View Users"
+      expect(page).to_not have_content "Manage Users"
       expect(page).to_not have_content "Pending Venues"
       expect(page).to have_content "You must be signed in as
         an admin to view this page."
@@ -42,7 +42,7 @@ feature "admin user can access admin dashboard" do
   context "signed-out user does not reach dashboard" do
     scenario "navigating to dashboard from url" do
       visit admin_dashboard_path
-      expect(page).to_not have_content "View Users"
+      expect(page).to_not have_content "Manage Users"
       expect(page).to_not have_content "Pending Venues"
       expect(page).to have_content "You must be signed in as
         an admin to view this page."

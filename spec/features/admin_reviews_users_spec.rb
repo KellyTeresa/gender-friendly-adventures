@@ -1,3 +1,5 @@
+require "rails_helper"
+
 feature "admin reviews users" do
   xscenario "view users" do
     users = []
