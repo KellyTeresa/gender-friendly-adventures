@@ -4,7 +4,7 @@
   <%= form_for [@venue, @review] do |f| %>
     <h5>Please fill out applicable sections, based on your visit:</h5>
 
-    <h6>Do staff refer to customers with genered terms?</h6>
+    <h6>Do staff refer to customers with gendered terms?</h6>
     <%= f.select :terminology, options_for_select(Review.terminology_options),
       prompt: true %>
 

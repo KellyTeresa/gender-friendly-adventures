@@ -7,9 +7,11 @@ class VenuesController < ApplicationController
       flash[:alert] = "Please specify a search phrase"
       redirect_to (:back || root_path)
     elsif params[:q].present?
-      @venues = Venue.search(params[:q]).order(params[:loc] || :name)
+      @venues = Venue.search(params[:q]).where(
+        approved: true).order(params[:loc] || :name)
     else
-      @venues = Venue.all.order(params[:loc] || :name)
+      @venues = Venue.all.where(
+        approved: true).order(params[:loc] || :name)
     end
   end
 
@@ -26,9 +28,19 @@ class VenuesController < ApplicationController
   def create
     @venue = Venue.new(venue_params)
     @categories = Category.all
+    @user = current_user
+    if @user.admin?
+      @venue.approved = true
+    end
+
     if @venue.save
-      flash[:success] = 'Venue saved'
-      redirect_to venue_path(@venue)
+      if @venue.approved?
+        flash[:success] = "Venue added."
+        redirect_to venue_path(@venue)
+      else
+        flash[:success] = "Venue queued for approval."
+        redirect_to venues_path
+      end
     else
       announce_errors(@venue)
       render :new
