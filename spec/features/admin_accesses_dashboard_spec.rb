@@ -18,21 +18,6 @@ feature "admin user can access admin dashboard" do
       expect(page).to have_content "View Users"
       expect(page).to have_content "Pending Venues"
     end
-
-    xscenario "view users" do
-      users = []
-      3.times do
-        users << FactoryGirl.create(:user)
-      end
-      visit admin_dashboard_path
-    end
-
-    xscenario "view pending venues" do
-      visit admin_dashboard_path
-    end
-
-    xscenario "approve venue" do
-    end
   end
 
   context "signed-in non-admin does not reach dashboard" do

@@ -1,0 +1,15 @@
+<div class="small-12 columns">
+  <h3>Pending Venues</h3>
+  <% if @venues.nil? || @venues.count == 0%>
+    <p>No results.</p>
+  <% else %>
+    <ul class="venues">
+      <% @venues.each do |venue| %>
+        <li>
+          <%= link_to venue.name,
+            admin_venue_path(venue) %><br>
+        </li>
+      <%- end -%>
+    </ul>
+  <%-end-%>
+</div>

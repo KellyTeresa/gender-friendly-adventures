@@ -1,0 +1,35 @@
+<div class="venue-info small-12 medium-6 columns">
+  <h3><%= @venue.name %></h3>
+  <ul class="venues">
+    <li><%= @venue.full_address %></li>
+    <% unless @venue.phone_number.blank? %>
+      <li><%= @venue.phone_number %></li>
+    <% end %>
+    <% unless @venue.website.blank? %>
+      <li><%= @venue.website %></li>
+    <% end %>
+    <li><%= @venue.summary %></li>
+    <% unless @venue.description.blank? %>
+      <li><%= @venue.description %></li>
+    <% end %>
+    <% unless @categories.length == 0 %>
+      <li>Categories:
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category_path(category) %>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="map small-12 medium-6 columns">
+  <h5>Map</h5>
+  <iframe
+    frameborder="0" style="border:0"
+    width="100%"
+    height="200px"
+    src="https://www.google.com/maps/embed/v1/place?key=<%=
+      ENV['GOOGLE_MAPS_KEY'] %>&q=<%=
+      @venue.full_address %>" allowfullscreen>
+  </iframe>
+</div>

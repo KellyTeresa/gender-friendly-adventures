@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get "/about" => "static_pages#about"
   # get "/contact" => "static_pages#contact"
   namespace :admin do
-    resources :users, :venues
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :venues, only: [:index, :show, :edit, :update]
     get "/dashboard" => "dashboard#index"
   end
   resources :venues, only: [:show, :index, :create, :new] do
