@@ -2,6 +2,6 @@ class Admin::UsersController < AdminController
   def index
   end
 
-  def show
+  def edit
   end
 end
