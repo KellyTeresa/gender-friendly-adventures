@@ -32,9 +32,7 @@ feature "admin user can access admin dashboard" do
     end
 
     xscenario "approve venue" do
-
     end
-
   end
 
   context "signed-in non-admin does not reach dashboard" do
