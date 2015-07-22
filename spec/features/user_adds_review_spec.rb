@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "add a review" do
-  let (:venue) { FactoryGirl.create(:venue) }
+  let (:venue) { FactoryGirl.create(:venue, approved: true) }
   let (:user) { FactoryGirl.create(:user) }
   let (:review) { FactoryGirl.build(:review) }
 
