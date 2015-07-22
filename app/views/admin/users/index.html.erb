@@ -1,0 +1,24 @@
+<h3>Manage Users</h3>
+
+<div class="user-display">
+  <table>
+    <tr>
+      <th>Display Name</th>
+      <th>Email</th>
+      <th>Admin?</th>
+    </tr>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.display_name %></td>
+        <td><%= user.email %></td>
+        <td>
+          <% if user.admin? %>
+            Yes
+          <% else %>
+            No
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

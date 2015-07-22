@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all.order(:name)
@@ -45,6 +46,18 @@ class VenuesController < ApplicationController
       announce_errors(@venue)
       render :new
     end
+  end
+
+  def edit
+
+  end
+
+  def update
+
+  end
+
+  def destroy
+
   end
 
   private
