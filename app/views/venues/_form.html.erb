@@ -31,7 +31,11 @@
     <%= f.label :description, "Long description" %>
     <%= f.text_area :description %>
 
-    <%= f.submit "Submit" %>
+    <% if current_page?(new_venue_path) %>
+      <%= f.submit "Submit" %>
+    <% elsif !@venue.id.nil? && current_page?(edit_venue_path(@venue)) %>
+      <%= f.submit "Save and Approve" %>
+    <% end %>
   </div>
   <div class="small-12 medium-5 columns">
     <%= f.collection_check_boxes :category_ids,
