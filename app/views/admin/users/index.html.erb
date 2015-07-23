@@ -13,9 +13,9 @@
         <td><%= user.email %></td>
         <td>
           <% if user.admin? %>
-            Yes
+            Yes | <%= link_to 'Remove Admin', edit_admin_user_path(id: user, status: 'remove') %>
           <% else %>
-            No
+            No | <%= link_to 'Make Admin', edit_admin_user_path(id: user, status: 'add') %>
           <% end %>
         </td>
       </tr>
