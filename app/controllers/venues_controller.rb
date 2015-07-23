@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authorize, only: [:edit, :update, :destroy]
 
   def index
     @categories = Category.all.order(:name)
@@ -45,6 +46,28 @@ class VenuesController < ApplicationController
       announce_errors(@venue)
       render :new
     end
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+    @categories = Category.all
+    @venue.approved = true
+    if @venue.save
+      flash[:success] = "Venue updated."
+      redirect_to venue_path(@venue)
+    else
+      announce_errors(@venue)
+      render :new
+    end
+  end
+
+  def destroy
+
   end
 
   private

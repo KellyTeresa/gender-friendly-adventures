@@ -1,6 +1,8 @@
 require "database_cleaner"
 require "coveralls"
-Coveralls.wear!
+if ENV["CI"]
+  Coveralls.wear!
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

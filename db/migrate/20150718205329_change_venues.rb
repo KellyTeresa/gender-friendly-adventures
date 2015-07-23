@@ -1,4 +1,4 @@
-class Changevenues < ActiveRecord::Migration
+class ChangeVenues < ActiveRecord::Migration
   def change
     rename_column :venues, :address, :street_address
     add_column :venues, :city, :string, null: false

@@ -16,6 +16,7 @@ class Venue < ActiveRecord::Base
   validates :website,
     format: { with: URI::regexp(%w(http https)) },
     allow_blank: true
+  validates :approved, inclusion: { in: [true, false] }
 
   include PgSearch
   pg_search_scope :search,

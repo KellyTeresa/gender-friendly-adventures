@@ -1,4 +1,4 @@
-class Createvenues < ActiveRecord::Migration
+class CreateVenues < ActiveRecord::Migration
   def change
     create_table :venues do |t|
       t.string :name, null: false
