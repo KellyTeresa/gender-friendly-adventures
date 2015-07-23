@@ -35,7 +35,7 @@
     <%= f.label :description, "Long description" %>
     <%= f.text_area :description %>
 
-    <% if current_page?(new_venue_path) %>
+    <% if @venue.id.nil? %>
       <%= f.submit "Submit" %>
     <% elsif !@venue.id.nil? && current_page?(edit_venue_path(@venue)) %>
       <%= f.submit "Save and Approve" %>

@@ -6,7 +6,7 @@
       <li><%= @venue.phone_number %></li>
     <% end %>
     <% unless @venue.website.blank? %>
-      <li><%= @venue.website %></li>
+      <li><%= link_to @venue.website, @venue.website %></li>
     <% end %>
     <li><%= @venue.summary %></li>
     <% unless @venue.description.blank? %>
