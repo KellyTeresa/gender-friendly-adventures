@@ -1,5 +1,4 @@
 <div class="form">
-  <p>*Required</p>
   <%= form_for @venue do |f| %>
   <div class="small-12 medium-7 columns">
     <%= f.label :name %>*
@@ -41,6 +40,8 @@
     <% elsif !@venue.id.nil? && current_page?(edit_venue_path(@venue)) %>
       <%= f.submit "Save and Approve" %>
     <% end %>
+
+    <h6>*Required</h6>
   </div>
   <div class="small-12 medium-5 columns">
     <h5>Categories</h5>
