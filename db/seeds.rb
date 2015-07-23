@@ -7,7 +7,15 @@ CATEGORIES = [
   'Dive Bar',
   'Hole in the Wall',
   'Fast Food',
-  'Food Court'
+  'Food Court',
+  "Coffee House",
+  "Grill",
+  "Desserts",
+  "Bakery",
+  "Food Truck",
+  "Concert Hall",
+  "Nightclub",
+  "Theater"
 ]
 
 CATEGORIES.each do |category|
