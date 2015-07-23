@@ -27,7 +27,7 @@
       Based on #{@venue.reviews.count} reviews."%></li>
     <% end %>
   </ul>
-  <% if current_user.admin? %>
+  <% if current_user && current_user.admin? %>
     <p><%= link_to 'Edit', edit_venue_path(@venue) %></p>
   <% end %>
 </div>
