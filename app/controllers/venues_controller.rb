@@ -67,7 +67,6 @@ class VenuesController < ApplicationController
   end
 
   def destroy
-
   end
 
   private
