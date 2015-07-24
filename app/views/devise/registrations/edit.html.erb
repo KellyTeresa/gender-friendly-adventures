@@ -18,6 +18,33 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :gender %> <i>(optional)</i><br />
+    <%= f.text_field :gender %>
+  </div>
+  <div class="field">
+    <%= f.label "Pronouns" %> <i>(defaults to they/them/etc. if not specified)</i><br />
+    <div class="row collapse">
+      <div class="small-2 columns">
+        <%= f.text_field :pronoun_subject %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.text_field :pronoun_object %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.text_field :pronoun_adjective %>
+      </div>
+      <div class="small-2 columns">
+        <%= f.text_field :pronoun_possessive %>
+      </div>
+      <div class="small-3 columns">
+        <%= f.text_field :pronoun_reflexive %>
+      </div>
+      <div class="small-1 columns">
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
   </div>

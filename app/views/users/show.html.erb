@@ -1,4 +1,21 @@
-<h3>Welcome, <%= @user.display_name %></h3>
+<h3><%= @user.display_name %></h3>
+
+<% if current_user == @user %>
+  <p>
+    <%= link_to 'Edit Account', edit_user_registration_path %>
+  </p>
+<% end %>
+
 <p>
-  <%= link_to 'Edit Account', edit_user_registration_path %>
+  <%= possessive_pronoun_display(@user) %> reviewed venues:
+  <% if @user.reviews.length == 0 %>
+    None yet!
+  <% else %>
+  <ul>
+    <% @user.reviews.each do |review| %>
+      <% @venue = review.venue %>
+      <li><%= link_to @venue.name, venue_path(@venue) %> | <%= review.overall %></li>
+    <% end %>
+  </ul>
+  <% end %>
 </p>
