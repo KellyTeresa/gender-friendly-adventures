@@ -15,7 +15,8 @@ CATEGORIES = [
   "Food Truck",
   "Concert Hall",
   "Nightclub",
-  "Theater"
+  "Theater",
+  "Beer Garden"
 ]
 
 CATEGORIES.each do |category|

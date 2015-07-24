@@ -5,8 +5,9 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
-  <link rel="shortcut icon" href=<%= image_path("favicon") %>>
-  <link rel="icon" href=<%= image_path("favicon") %>>
+  <%= favicon_link_tag 'favicon.png',
+    rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= favicon_link_tag %>
   <link href='https://fonts.googleapis.com/css?family=Raleway|Amaranth' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
