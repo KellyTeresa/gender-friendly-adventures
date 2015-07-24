@@ -1,6 +1,11 @@
 ![Build Status](https://codeship.com/projects/d9986f00-0afe-0133-67ba-2696e3e4b295/status?branch=master) [![Code Climate](https://codeclimate.com/github/KellyTeresa/gender-friendly-adventures/badges/gpa.svg)](https://codeclimate.com/github/KellyTeresa/gender-friendly-adventures) [![Coverage Status](https://coveralls.io/repos/KellyTeresa/gender-friendly-adventures/badge.svg?branch=master&service=github)](https://coveralls.io/github/KellyTeresa/gender-friendly-adventures?branch=master)
 
 # Gender Friendly Adventures
+* [About](https://github.com/KellyTeresa/gender-friendly-adventures/blob/master/README.md#about)
+* [Goal](https://github.com/KellyTeresa/gender-friendly-adventures#goal)
+* [Technology](https://github.com/KellyTeresa/gender-friendly-adventures#technology)
+* [Roadmap](https://github.com/KellyTeresa/gender-friendly-adventures#roadmap)
+* [Contributing](https://github.com/KellyTeresa/gender-friendly-adventures#contributing-to-gfa)
 
 ### About
 Gender Friendly Adventures (GFA) is an ongoing project, started as a breakable toy (final project) at Launch Academy, Summer 2015 cohort.
