@@ -19,6 +19,8 @@ Gender Friendly Adventures was designed to give users more information on the ge
 * Venue categories - Complete
 * New venue approval queue - Complete
 * Admin dashboard - Complete
-* User profiles with favorite venues - In Progress
-* Location based search with geocoder - Planned
 * Prettier front-end - In Progress
+* User profiles with reviewed and favorite venues - In Progress
+* Location based search with geocoder - Planned, geocoder already prepared
+* Location-specific admin features - Planned
+* Email notifications for pending venues - Planned
