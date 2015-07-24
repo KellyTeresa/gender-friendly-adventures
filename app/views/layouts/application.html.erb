@@ -27,7 +27,7 @@
             <%= link_to 'Venues', venues_path %>
             <ul class="dropdown">
               <li><%= link_to 'Add Venue', new_venue_path %></li>
-              <li><a href="#">Advanced Search</a></li>
+              <li><%= link_to 'Advanced Search', coming_soon_path %></li>
             </ul>
           </li>
           <li><%= form_tag venues_path, method: :get do %>
