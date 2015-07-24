@@ -15,7 +15,7 @@
     <% unless @categories.length == 0 %>
       <li>Categories:
       <% @categories.each do |category| %>
-        <%= link_to category.name, category_path(category) %>
+        <%= link_to "⋆ #{category.name}", category_path(category) %>
       <% end %>
       </li>
     <% end %>
