@@ -3,7 +3,7 @@
 # Gender Friendly Adventures
 
 ### About
-Gender Friendly Advenutes is an ongoing project, started as a breakable toy (final project) at Launch Academy, Summer 2015 cohort.
+Gender Friendly Adventures is an ongoing project, started as a breakable toy (final project) at Launch Academy, Summer 2015 cohort.
 
 ### Goal
 Gender Friendly Adventures was designed to give users more information on the gender-related aspects of restaurants, coffee shops, bars, and other venues, that isn't listed on existing review sites. This will help you be more informed before you decide to go to a new restaurant, so you can support venues that are all-gender inclusive, and spare yourself some headaches.
