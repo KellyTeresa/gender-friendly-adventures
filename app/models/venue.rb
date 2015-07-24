@@ -2,7 +2,7 @@ require "uri"
 
 class Venue < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
-  has_many :venue_categories
+  has_many :venue_categories, dependent: :destroy
   has_many :categories, through: :venue_categories
   accepts_nested_attributes_for :categories
 

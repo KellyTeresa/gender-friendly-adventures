@@ -57,7 +57,7 @@ class VenuesController < ApplicationController
     @venue = Venue.find(params[:id])
     @categories = Category.all
     @venue.approved = true
-    if @venue.save
+    if @venue.update(venue_params)
       flash[:success] = "Venue updated."
       redirect_to venue_path(@venue)
     else
