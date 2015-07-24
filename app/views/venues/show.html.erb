@@ -53,20 +53,25 @@
     <% else %>
       <% @venue.reviews.each do |review| %>
         <li>
-          <%=
-            "#{review.overall} out of 5 overall.
-            #{review.comment} - #{review.user.display_name}
-            | #{review.created_at.strftime("%d %b. %Y")}"
-          %><br>
-          <%= unless review.terminology.nil?
-            "Did staff use gendered terms?
-            #{Review.terminology_options.invert[review.terminology]}"
-          end %><br>
-          <%= unless review.bathrooms.nil?
-            "Available bathrooms:
-            #{Review.bathroom_options.invert[review.bathrooms]}"
-          end %>
-        </li>
+          <div class="review-basics">
+            <%=
+              "#{review.overall} out of 5 overall.
+              #{review.comment} - "
+            %>
+            <%=link_to review.user.display_name, user_path(review.user) %>
+            <%=" | #{review.created_at.strftime("%d %b. %Y")}"%>
+          </div>
+          <div class="review-details">
+            <%= unless review.terminology.nil?
+              "‽ Did staff use gendered terms?
+              #{Review.terminology_options.invert[review.terminology]}"
+            end %><br>
+            <%= unless review.bathrooms.nil?
+              "‽ Available bathrooms:
+              #{Review.bathroom_options.invert[review.bathrooms]}"
+            end %>
+        </div>
+      </li>
       <% end %>
     <% end %>
   </ul>
