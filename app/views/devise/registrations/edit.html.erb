@@ -22,8 +22,24 @@
     <%= f.text_field :gender %>
   </div>
   <div class="field">
-    <%= f.label "Pronouns" %> <i>(defaults to they/them/etc. if not specified)<br />
-    <%= "#{resource.pronoun_subject.capitalize} made an account. It belongs to #{resource.pronoun_object}. #{resource.pronoun_adjective.capitalize} profile is #{resource.pronoun_possessive}. #{resource.display_name} edited the profile #{resource.pronoun_reflexive}." %></i><br />
+    <%= f.label "Pronouns" %> <i>(defaults to they/them/etc. if not specified)</i><br />
+    <div class="row collapse example">
+      <div class="small-2 columns">
+        <%= "#{resource.pronoun_subject.capitalize} made it." %>
+      </div>
+      <div class="small-2 columns">
+        <%= "It belongs to #{resource.pronoun_object}." %>
+      </div>
+      <div class="small-2 columns">
+        <%= " #{resource.pronoun_adjective.capitalize} profile." %>
+      </div>
+      <div class="small-2 columns">
+        <%= "It's #{resource.pronoun_possessive}." %>
+      </div>
+      <div class="small-4 columns">
+        <%= "#{resource.display_name} did it #{resource.pronoun_reflexive}." %>
+      </div>
+    </div>
     <div class="row collapse">
       <div class="small-2 columns">
         <%= f.text_field :pronoun_subject %>
@@ -37,10 +53,8 @@
       <div class="small-2 columns">
         <%= f.text_field :pronoun_possessive %>
       </div>
-      <div class="small-3 columns">
+      <div class="small-4 columns">
         <%= f.text_field :pronoun_reflexive %>
-      </div>
-      <div class="small-1 columns">
       </div>
     </div>
   </div>
