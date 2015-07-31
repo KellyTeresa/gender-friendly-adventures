@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Profile</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -22,7 +22,8 @@
     <%= f.text_field :gender %>
   </div>
   <div class="field">
-    <%= f.label "Pronouns" %> <i>(defaults to they/them/etc. if not specified)</i><br />
+    <%= f.label "Pronouns" %> <i>(defaults to they/them/etc. if not specified)<br />
+    <%= "#{resource.pronoun_subject.capitalize} made an account. It belongs to #{resource.pronoun_object}. #{resource.pronoun_adjective.capitalize} profile is #{resource.pronoun_possessive}. #{resource.display_name} edited the profile #{resource.pronoun_reflexive}." %></i><br />
     <div class="row collapse">
       <div class="small-2 columns">
         <%= f.text_field :pronoun_subject %>

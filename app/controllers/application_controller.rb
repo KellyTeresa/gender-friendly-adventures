@@ -25,7 +25,13 @@ class ApplicationController < ActionController::Base
         :display_name,
         :password,
         :password_confirmation,
-        :current_password
+        :current_password,
+        :gender,
+        :pronoun_object,
+        :pronoun_subject,
+        :pronoun_adjective,
+        :pronoun_reflexive,
+        :pronoun_possessive
       )
     end
   end
