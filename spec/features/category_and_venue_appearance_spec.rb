@@ -19,13 +19,13 @@ end
 feature "Categories shown on index page" do
   let!(:diner) { Category.create(name: "Diner") }
   scenario "a category with approved venues will appear" do
-    FactoryGirl.create(:venue, approved: true, categories:[diner])
+    FactoryGirl.create(:venue, approved: true, categories: [diner])
     visit root_path
     expect(page).to have_content "Diner"
   end
 
   scenario "a category with only queued venues will not appear" do
-    FactoryGirl.create(:venue, categories:[diner])
+    FactoryGirl.create(:venue, categories: [diner])
     visit root_path
     expect(page).to_not have_content "Diner"
   end

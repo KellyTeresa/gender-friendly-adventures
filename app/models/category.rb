@@ -7,15 +7,20 @@ class Category < ActiveRecord::Base
     if venues.count == 0 || venues.count == nil
       false
     else
-      approval = []
-      venues.each do |venue|
-        approval << venue if venue.approved == true
-      end
-      if approval.count >= 1
-        true
-      else
-        false
-      end
+      count_approvals
     end
   end
+
+  def count_approvals
+    approval = []
+    venues.each do |venue|
+      approval << venue if venue.approved == true
+    end
+    if approval.count >= 1
+      true
+    else
+      false
+    end
+  end
+
 end
