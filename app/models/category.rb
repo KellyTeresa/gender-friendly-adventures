@@ -4,7 +4,7 @@ class Category < ActiveRecord::Base
   validates :name, presence: true, length: { in: 2..20 }
 
   def approved_venues?
-    if venues.count == 0
+    if venues.empty?
       false
     else
       count_approvals
