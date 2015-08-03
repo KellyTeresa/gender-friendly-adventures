@@ -29,4 +29,9 @@ feature "Categories shown on index page" do
     visit root_path
     expect(page).to_not have_content "Diner"
   end
+
+  scenario "a category with no venues will not appear" do
+    visit root_path
+    expect(page).to_not have_content "Diner"
+  end
 end
