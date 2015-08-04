@@ -35,11 +35,7 @@ class Venue < ActiveRecord::Base
   end
 
   def overall_average
-    if reviews.count == 0
-      nil
-    else
-      "Overall: #{smile_display(reviews.sum(:overall) / reviews.count)}."
-    end
+    "Overall: #{smile_display(reviews.sum(:overall) / reviews.count)}."
   end
 
   def average_rating(kind_of_review)
