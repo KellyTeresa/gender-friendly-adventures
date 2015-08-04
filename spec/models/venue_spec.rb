@@ -124,4 +124,62 @@ RSpec.describe Venue, type: :model do
       expect(results).to include(Venue.last)
     end
   end
+
+  context "display each rating" do
+    let(:venue) { FactoryGirl.create(:venue) }
+    let!(:reviews) {
+      2.times { FactoryGirl.create(:review, venue: venue) }
+    }
+    it "displays an overall rating as an emoji" do
+      expect(venue.overall_average).to eq("Overall: 😐.")
+    end
+
+    it "calculates average rating for terminology and displays as an emoji" do
+      expect(venue.average_rating(:terminology)).to eq("Terminology: 😐.")
+    end
+
+    it "calculates average rating for bathrooms and displays as an emoji" do
+      expect(venue.average_rating(:bathrooms)).to eq("Bathrooms: 😐.")
+    end
+  end
+
+  context "there are not enough ratings" do
+    let(:venue) { FactoryGirl.create(:venue) }
+    it "has no overall rating" do
+      expect(venue.overall_average).to eq(nil)
+    end
+
+    it "has no terminology rating" do
+      2.times { FactoryGirl.create(:review, venue: venue, terminology: nil) }
+      expect(venue.average_rating(:terminology)).to eq("No data on terminology.")
+    end
+
+    it "has no bathroom rating" do
+      2.times { FactoryGirl.create(:review, venue: venue, bathrooms: nil) }
+      expect(venue.average_rating(:bathrooms)).to eq("No data on bathrooms.")
+    end
+  end
+
+  context "converts numbers 1.0 through 5.0 to emoji for display" do
+    let(:venue) { FactoryGirl.create(:venue) }
+    it "has an average equal to or more than 4.5" do
+      expect(venue.smile_display(4.7)).to eq("😍")
+    end
+
+    it "has an average equal to or more than 3.5 and less than 4.5" do
+      expect(venue.smile_display(3.7)).to eq("😃")
+    end
+
+    it "has an average equal to or more than 2.5 and less than 3.5" do
+      expect(venue.smile_display(2.7)).to eq("😐")
+    end
+
+    it "has an average equal to or more than 1.5 and less than 2.5" do
+      expect(venue.smile_display(1.7)).to eq("😔")
+    end
+
+    it "has an average equal to or less than 1.5" do
+      expect(venue.smile_display(1)).to eq("😡")
+    end
+  end
 end
