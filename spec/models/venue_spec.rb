@@ -151,7 +151,8 @@ RSpec.describe Venue, type: :model do
 
     it "has no terminology rating" do
       2.times { FactoryGirl.create(:review, venue: venue, terminology: nil) }
-      expect(venue.average_rating(:terminology)).to eq("No data on terminology.")
+      expect(venue.average_rating(:terminology)).to eq("No data on
+       terminology.")
     end
 
     it "has no bathroom rating" do
