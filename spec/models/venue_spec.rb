@@ -146,7 +146,7 @@ RSpec.describe Venue, type: :model do
   context "there are not enough ratings" do
     let(:venue) { FactoryGirl.create(:venue) }
     it "has no reviews, raises error" do
-      expect{venue.overall_average}.to raise_error(ZeroDivisionError)
+      expect { venue.overall_average }.to raise_error(ZeroDivisionError)
     end
 
     it "has no terminology rating" do
