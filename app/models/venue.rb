@@ -1,7 +1,7 @@
 require "uri"
 
 class Venue < ActiveRecord::Base
-  paginates_per 8
+  paginates_per 10
 
   has_many :reviews, dependent: :destroy
   has_many :venue_categories, dependent: :destroy
