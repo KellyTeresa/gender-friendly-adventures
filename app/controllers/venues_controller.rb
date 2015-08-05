@@ -9,10 +9,10 @@ class VenuesController < ApplicationController
       redirect_to (:back || root_path)
     elsif params[:q].present?
       @venues = Venue.search(params[:q]).where(
-        approved: true).order(params[:loc] || :name)
+        approved: true).order(params[:loc] || :name).page(params[:page])
     else
       @venues = Venue.all.where(
-        approved: true).order(params[:loc] || :name)
+        approved: true).order(params[:loc] || :name).page(params[:page])
     end
   end
 
