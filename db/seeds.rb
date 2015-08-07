@@ -23,4 +23,6 @@ CATEGORIES.each do |category|
   Category.find_or_create_by!(name: category)
 end
 
-10.times { FactoryGirl.create(:venue, approved: true) }
+if ENV["development"]
+  10.times { FactoryGirl.create(:venue, approved: true) }
+end
